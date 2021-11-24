@@ -16,6 +16,13 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="/cart"> <img class="melon-cart" src="/static/img/watermelon.png">My Melon Cart</a>
                     <a class="nav-link" href="/login">Log In</a>
+                    {% if "is_logged_in" in session %}
+                    <a class="nav-link" href="/logout">Log Out</a>
+                    {% endif %}
+
+
+
+
                 </div>
             </div>
         </div>
