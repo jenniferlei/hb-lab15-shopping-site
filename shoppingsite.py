@@ -158,8 +158,8 @@ def process_login():
         user = customers.get_by_email(session["email"], customers.customer_data)
         if session["password"] == user.password:
             flash("Successfully logged in!")
-            session["is_logged_in"] = True
-            return redirect("/melons", session=session)
+            session["login"] = True
+            return redirect("/melons")
         else:
             flash("Failed to log in")
             return redirect("/login")
@@ -168,6 +168,17 @@ def process_login():
         return redirect("/login")
 
 
+@app.route("/logout")
+def process_logot():
+    """Log user out of site.
+
+    Delete the login session
+    """
+
+    del session["login"]
+    flash("Successfully logged out!")
+    return redirect("/melons")
+    
 
 @app.route("/checkout")
 def checkout():
